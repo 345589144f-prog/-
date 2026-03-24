@@ -1,3 +1,6 @@
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+
 try {
     $tokenInfo = & (Join-Path $PSScriptRoot "Get-AvitoAccessToken.ps1")
 
@@ -12,4 +15,3 @@ try {
     Write-Host $_.Exception.Message
     exit 1
 }
-

@@ -3,6 +3,9 @@ param(
     [switch]$Raw
 )
 
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+
 $envValues = & (Join-Path $PSScriptRoot "Load-Env.ps1") -EnvPath $EnvPath
 
 $clientId = $envValues["AVITO_CLIENT_ID"]
@@ -44,4 +47,3 @@ $maskedToken = if ($response.access_token.Length -gt 10) {
     scope = $response.scope
     access_token_preview = $maskedToken
 }
-

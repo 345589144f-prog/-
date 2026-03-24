@@ -2,6 +2,9 @@ param(
     [string]$EnvPath = (Join-Path $PSScriptRoot "..\.env")
 )
 
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+
 if (-not (Test-Path $EnvPath)) {
     throw "Файл .env не найден: $EnvPath"
 }
@@ -29,4 +32,3 @@ Get-Content -Path $EnvPath | ForEach-Object {
 }
 
 return $values
-

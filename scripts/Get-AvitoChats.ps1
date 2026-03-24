@@ -2,6 +2,9 @@ param(
     [string]$EnvPath = (Join-Path $PSScriptRoot "..\.env")
 )
 
+[Console]::OutputEncoding = [System.Text.Encoding]::UTF8
+$OutputEncoding = [System.Text.Encoding]::UTF8
+
 try {
     $envValues = & (Join-Path $PSScriptRoot "Load-Env.ps1") -EnvPath $EnvPath
     $userId = $envValues["AVITO_USER_ID"]
